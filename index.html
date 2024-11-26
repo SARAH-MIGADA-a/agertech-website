@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgerTech Token - Revolutionizing Agritech with Blockchain">
+    <title>AgerTech Token</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #98f39e;
+            --secondary: #0ca537;
+            --accent: #b8b9b6;
+            --light: #1d8f30;
+            --dark: #000000;
+            --white: #615e5e;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: var(--white);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* Features */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Tokenomics */
+        .tokenomics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .token-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .token-info h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Roadmap */
+        .roadmap-list {
+            list-style: none;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .roadmap-list li {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .roadmap-list li strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Team */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background: var(--white);
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="/img/agritech-logo.png" alt="AgerTech Logo" class="logo-image">
+                <div class="logo">AgerTech</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <h1>Welcome to AgerTech Token</h1>
+        <p>Empowering the Agritech ecosystem with blockchain technology</p>
+        <a href="#features" class="cta-button">Learn More</a>
+    </section>
+
+    <section id="features" data-aos="fade-up">
+        <h2>Features</h2>
+        <div class="features-container">
+            <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                <h3>Decentralized Payments</h3>
+                <p>Facilitating secure and fast transactions across the supply chain, ensuring timely payments and reducing intermediary costs.</p>
+            </div>
+            <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                <h3>Reward System</h3>
+                <p>Incentivizing sustainable farming practices through a transparent and fair reward system that benefits all stakeholders.</p>
+            </div>
+            <div class="feature" data-aos="fade-up" data-aos-delay="300">
+                <h3>Transparency</h3>
+                <p>Leveraging blockchain technology to ensure complete traceability and accountability throughout the agricultural supply chain.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" data-aos="fade-up">
+        <h2>Tokenomics</h2>
+        <div class="tokenomics-container">
+            <div class="token-info" data-aos="fade-up" data-aos-delay="100">
+                <h3>Total Supply</h3>
+                <p>1,000,000 AGER</p>
+            </div>
+            <div class="token-info" data-aos="fade-up" data-aos-delay="200">
+                <h3>Distribution</h3>
+                <p>40% Community<br>30% Team<br>20% Partnerships<br>10% Reserve</p>
+            </div>
+            <div class="token-info" data-aos="fade-up" data-aos-delay="300">
+                <h3>Use Cases</h3>
+                <p>• Payments<br>• Rewards<br>• Staking<br>• Governance</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" data-aos="fade-up">
+        <h2>Roadmap</h2>
+        <ul class="roadmap-list">
+            <li data-aos="fade-up" data-aos-delay="100">
+                <strong>Q1 2024</strong>
+                Token launch and website deployment with initial community building
+            </li>
+            <li data-aos="fade-up" data-aos-delay="200">
+                <strong>Q2 2024</strong>
+                Integration into Agritech ecosystem and partnership development
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+                <strong>Q3 2024</strong>
+                Partnerships with local farmers and expansion of use cases
+            </li>
+            <li data-aos="fade-up" data-aos-delay="400">
+                <strong>Q4 2024</strong>
+                Global adoption campaign and platform enhancement
+            </li>
+        </ul>
+    </section>
+
+    <section id="team" data-aos="fade-up">
+        <h2>Our Team</h2>
+        <div class="team-container">
+            <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                <img src="/img/Sarah.jpeg" alt="Sarah Migada">
+                <h3>Sarah Migada</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                <img src="/img/florence.jpeg" alt="Florence Munanye">
+                <h3>Florence Munanye</h3>
+                <p>UI/UX Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <form action="https://formspree.io/f/my-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AgerTech Token. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+    </script>
+</body>
+</html>
